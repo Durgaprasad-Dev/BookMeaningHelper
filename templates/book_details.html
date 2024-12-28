@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ book[1] }} - Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center text-info">{{ book[1] }}</h1>
+        <h4 class="text-center text-secondary">By {{ book[2] }}</h4>
+      <!--  <img  src="{{ book[3] }}"  alt="{{ book[1] }}" class="rounded mx-auto d-block my-4" style="height: 300px; object-fit: cover;">-->
+
+        <h4>Search Word Meanings</h4>
+        <form method="POST" class="mb-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="search_word" placeholder="Search by word">
+                <button type="submit" class="btn btn-primary">Search Word</button>
+            </div>
+            <div class="input-group">
+                <input type="number" class="form-control" name="search_page" placeholder="Search by page number">
+                <button type="submit" class="btn btn-secondary">Search Page</button>
+            </div>
+        </form>
+
+        <h4>Word Meanings</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Word</th>
+                    <th>Meaning</th>
+                    <th>Page</th>
+                    <th>Line</th>
+                    <th>Position</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in words %}
+                <tr>
+                    <td>{{ word[0] }}</td>
+                    <td>{{ word[2] }}</td>
+                    <td>{{ word[3] }}</td>
+                    <td>{{ word[4] }}</td>
+                    <td>{{ word[5] }}</td>
+                    <td>{{ word[6] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_word', word_id=word[0]) }}" class="btn btn-warning btn-sm">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h4 class="mt-5">Add a Word</h4>
+        <form method="POST" class="shadow p-4 rounded bg-white">
+            <div class="mb-3">
+                <label for="word" class="form-label">Word</label>
+                <input type="text" class="form-control" id="word" name="word" required>
+            </div>
+            <div class="mb-3">
+                <label for="page_number" class="form-label">Page Number</label>
+                <input type="number" class="form-control" id="page_number" name="page_number" required>
+            </div>
+            <div class="mb-3">
+                <label for="line_number" class="form-label">Line Number</label>
+                <input type="number" class="form-control" id="line_number" name="line_number" required>
+            </div>
+            <div class="mb-3">
+                <label for="word_position" class="form-label">Word Position</label>
+                <input type="number" class="form-control" id="word_position" name="word_position" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Word</button>
+        </form>
+    </div>
+</body>
+</html>
