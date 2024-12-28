@@ -1,4 +1,16 @@
-Project Description: Book Meaning Helper
+**Recreate the Environment for Others**
+STEP1:
+git clone <your-repository-url>
+cd BOOKMEANINGHELPER
+STEP2:
+python -m venv env/bookmeaninghelper_python_3.10
+STEP3:
+env/bookmeaninghelper_python_3.10\Scripts\activate
+STEP4:
+pip install -r requirements.txt
+
+
+**Project Description: Book Meaning Helper**
 The Book Meaning Helper is a Python-based web application designed to assist book readers in better understanding words they encounter while reading. Built using the Flask framework, the application provides a centralized platform for managing books, their corresponding words, meanings, and relevant metadata like page numbers, line numbers, and word positions. This project aims to streamline the reading experience by reducing interruptions caused by searching for word meanings manually.
 
 Key Features:
